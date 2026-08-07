@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mueblería Hermanos Jota — Contacto</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__contenedor">
+      <a href="index.html" class="header__logo">
+        <img src="img/logo.svg" alt="Logo Mueblería Hermanos Jota">
+      </a>
+      <nav class="nav">
+        <ul class="nav__lista">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="productos.html" class="nav-link">Productos</a></li>
+          <li><a href="contacto.html" class="nav-link nav-link--activo">Contacto</a></li>
+        </ul>
+      </nav>
+      <button type="button" id="btn-carrito" class="header__carrito" aria-label="Ver carrito" aria-expanded="false">
+        <span class="header__carrito-icono" aria-hidden="true">🛒</span>
+        <span id="contador-carrito" class="header__carrito-contador">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Formulario de contacto -->
+    <section class="seccion">
+      <div class="container">
+        <h1 class="seccion__titulo">Contacto</h1>
+        <p class="seccion__subtitulo">Escribinos y te respondemos a la brevedad.</p>
+
+        <form id="formulario-contacto" class="formulario-contacto" novalidate>
+          <div class="formulario__grupo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+
+          <div class="formulario__grupo">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="formulario__grupo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primario">Enviar mensaje</button>
+        </form>
+
+        <div id="mensaje-exito" class="formulario__feedback"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__contenedor">
+      <p class="footer__texto">&copy; 2026 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+      <p class="footer__texto">Av. Corrientes 1234, CABA — <a href="contacto.html" class="footer__enlace">Contactanos</a></p>
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contacto.js"></script>
+</body>
+</html>

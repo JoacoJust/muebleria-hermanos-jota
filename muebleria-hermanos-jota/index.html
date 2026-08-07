@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mueblería Hermanos Jota — Inicio</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__contenedor">
+      <a href="index.html" class="header__logo">
+        <img src="img/logo.svg" alt="Logo Mueblería Hermanos Jota">
+      </a>
+      <nav class="nav">
+        <ul class="nav__lista">
+          <li><a href="index.html" class="nav-link nav-link--activo">Inicio</a></li>
+          <li><a href="productos.html" class="nav-link">Productos</a></li>
+          <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+      <button type="button" id="btn-carrito" class="header__carrito" aria-label="Ver carrito" aria-expanded="false">
+        <span class="header__carrito-icono" aria-hidden="true">🛒</span>
+        <span id="contador-carrito" class="header__carrito-contador">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="hero">
+      <div class="container hero__contenedor">
+        <h1 class="hero__titulo">Muebles con alma, hechos para durar</h1>
+        <p class="hero__bajada">Descubrí nuestra colección de muebles artesanales y contemporáneos para cada rincón de tu hogar.</p>
+        <a href="productos.html" class="btn btn-primario">Ver catálogo</a>
+      </div>
+    </section>
+
+    <!-- Productos destacados -->
+    <section class="seccion">
+      <div class="container">
+        <h2 class="seccion__titulo">Productos destacados</h2>
+        <div id="productos-destacados" class="grilla-productos"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__contenedor">
+      <p class="footer__texto">&copy; 2026 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+      <p class="footer__texto">Av. Corrientes 1234, CABA — <a href="contacto.html" class="footer__enlace">Contactanos</a></p>
+    </div>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
