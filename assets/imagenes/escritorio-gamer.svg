@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#e8dfd3"/>
+  <rect x="100" y="120" width="200" height="15" fill="#c8956c"/>
+  <rect x="100" y="135" width="200" height="80" fill="#d4a574"/>
+  <rect x="110" y="145" width="80" height="30" fill="#b8956c" rx="2"/>
+  <rect x="210" y="145" width="80" height="30" fill="#b8956c" rx="2"/>
+  <rect x="95" y="215" width="8" height="20" fill="#8b4513"/>
+  <rect x="297" y="215" width="8" height="20" fill="#8b4513"/>
+  <text x="200" y="270" text-anchor="middle" fill="#6b5d4d" font-family="sans-serif" font-size="14">Escritorio N�rdico</text>
+</svg>

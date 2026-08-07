@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <rect width="400" height="300" fill="#e8dfd3"/>
+  <rect x="60" y="140" width="280" height="12" fill="#8b4513" rx="2"/>
+  <rect x="80" y="152" width="20" height="80" fill="#6d3610"/>
+  <rect x="300" y="152" width="20" height="80" fill="#6d3610"/>
+  <rect x="140" y="152" width="20" height="80" fill="#6d3610"/>
+  <rect x="240" y="152" width="20" height="80" fill="#6d3610"/>
+  <text x="200" y="270" text-anchor="middle" fill="#6b5d4d" font-family="sans-serif" font-size="14">Mesa de comedor Roble</text>
+</svg>
