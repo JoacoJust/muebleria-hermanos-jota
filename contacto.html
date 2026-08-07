@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Mueblería Hermanos Jota</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="header" class="header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html">
+          <h1>Hermanos Jota</h1>
+          <p class="tagline">Muebles de Calidad</p>
+        </a>
+      </div>
+      <nav class="nav-principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Catálogo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="carrito.html" class="carrito-link">🛒 Carrito <span class="contador-carrito">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-contacto">
+    <section class="contacto-container">
+      <h1>Contacta con Nosotros</h1>
+      <p class="descripcion">¿Tienes preguntas? Nos encantaría escucharte.</p>
+
+      <div class="contacto-content">
+        <aside class="info-contacto">
+          <article class="contacto-item">
+            <h3>📞 Teléfono</h3>
+            <p><a href="tel:+541112345678">+54 11 1234-5678</a></p>
+          </article>
+          <article class="contacto-item">
+            <h3>📧 Email</h3>
+            <p><a href="mailto:info@hermanosjota.com">info@hermanosjota.com</a></p>
+          </article>
+          <article class="contacto-item">
+            <h3>📍 Ubicación</h3>
+            <p>Calle Principal 123, Lomas de Zamora, Buenos Aires</p>
+          </article>
+          <article class="contacto-item">
+            <h3>🕐 Horario</h3>
+            <p>Lunes a Viernes: 9:00 - 18:00<br>Sábados: 10:00 - 14:00</p>
+          </article>
+        </aside>
+
+        <section class="formulario-section">
+          <form id="form-contacto" class="formulario-contacto">
+            <div class="grupo-form">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" required>
+              <span class="error" id="error-nombre"></span>
+            </div>
+
+            <div class="grupo-form">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required>
+              <span class="error" id="error-email"></span>
+            </div>
+
+            <div class="grupo-form">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono">
+              <span class="error" id="error-telefono"></span>
+            </div>
+
+            <div class="grupo-form">
+              <label for="asunto">Asunto *</label>
+              <input type="text" id="asunto" name="asunto" required>
+              <span class="error" id="error-asunto"></span>
+            </div>
+
+            <div class="grupo-form">
+              <label for="mensaje">Mensaje *</label>
+              <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+              <span class="error" id="error-mensaje"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+          </form>
+
+          <div id="exito-contacto" class="mensaje-exito" style="display:none;">
+            <h3>✅ ¡Mensaje enviado con éxito!</h3>
+            <p>Nos pondremos en contacto en las próximas 24 horas.</p>
+            <button type="button" id="btn-enviar-otro" class="btn btn-secondary">Enviar otro mensaje</button>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <section class="footer-section">
+        <h4>Sobre Nosotros</h4>
+        <p>Hermanos Jota lleva 30 años ofreciendo muebles de calidad a Buenos Aires</p>
+      </section>
+      <section class="footer-section">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Catálogo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </section>
+      <section class="footer-section">
+        <h4>Contacto</h4>
+        <p>📞 +54 11 1234-5678</p>
+        <p>📧 info@hermanosjota.com</p>
+        <p>📍 Lomas de Zamora, Buenos Aires</p>
+      </section>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/validacion.js"></script>
+</body>
+</html>

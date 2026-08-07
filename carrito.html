@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras - Mueblería Hermanos Jota</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="header" class="header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html">
+          <h1>Hermanos Jota</h1>
+          <p class="tagline">Muebles de Calidad</p>
+        </a>
+      </div>
+      <nav class="nav-principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Catálogo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="carrito.html" class="carrito-link">🛒 Carrito <span class="contador-carrito">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-carrito">
+    <h1>Tu Carrito de Compras</h1>
+
+    <div id="carrito-vacio" class="carrito-vacio">
+      <p>Tu carrito está vacío.</p>
+      <a href="productos.html" class="btn btn-primary">Continuar Comprando</a>
+    </div>
+
+    <div id="carrito-lleno" class="carrito-lleno" style="display:none;">
+      <section class="items-carrito">
+        <h2>Items en tu Carrito</h2>
+        <table id="tabla-carrito" class="tabla-carrito">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio Unitario</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-carrito"></tbody>
+        </table>
+      </section>
+
+      <aside class="resumen-carrito">
+        <h3>Resumen de Compra</h3>
+        <dl>
+          <dt>Subtotal:</dt>
+          <dd id="subtotal">$0</dd>
+          <dt>Envío:</dt>
+          <dd id="envio">$0</dd>
+          <dt>Total:</dt>
+          <dd id="total" class="total-final">$0</dd>
+        </dl>
+        <button type="button" id="btn-procesar" class="btn btn-primary btn-lg">Procesar Compra</button>
+        <a href="productos.html" class="btn btn-secondary">Seguir Comprando</a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <section class="footer-section">
+        <h4>Sobre Nosotros</h4>
+        <p>Hermanos Jota lleva 30 años ofreciendo muebles de calidad a Buenos Aires</p>
+      </section>
+      <section class="footer-section">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Catálogo</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </section>
+      <section class="footer-section">
+        <h4>Contacto</h4>
+        <p>📞 +54 11 1234-5678</p>
+        <p>📧 info@hermanosjota.com</p>
+        <p>📍 Lomas de Zamora, Buenos Aires</p>
+      </section>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Mueblería Hermanos Jota. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>
