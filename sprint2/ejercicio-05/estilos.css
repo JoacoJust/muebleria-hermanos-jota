@@ -1,0 +1,118 @@
+/* ============================================================
+   EJERCICIO 5 — Hero Banner de pantalla completa (100vh + Flexbox)
+   ============================================================ */
+
+/* Reset universal: sin él, el margin por defecto del <body> haría
+   aparecer una barra de scroll junto al hero de 100vh. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-fondo: #faf7f2;
+  --color-texto: #2c2416;
+  --color-texto-claro: #6b5d4d;
+  --color-primario: #8b4513;
+  --color-primario-oscuro: #6d3610;
+  --color-acento: #c8956c;
+  --color-blanco: #ffffff;
+  --fuente-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --fuente-titulo: Georgia, "Times New Roman", serif;
+  --radio: 8px;
+  --transicion: 0.2s ease;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-base);
+  line-height: 1.6;
+}
+
+/* HERO: 100vh = 100% del alto de la ventana visible (viewport height),
+   no del contenido ni del elemento padre. Ocupa exactamente una pantalla.
+   El centrado se resuelve con Flexbox:
+   - flex-direction: column  → el eje principal pasa a ser el VERTICAL
+   - justify-content: center → centra sobre el eje principal (vertical)
+   - align-items: center     → centra sobre el eje secundario (horizontal) */
+.hero-banner {
+  height: 100vh;
+  background: linear-gradient(135deg, #3d2b1f 0%, #6d4c2a 50%, #8b4513 100%);
+  color: var(--color-blanco);
+  padding: 1.5rem; /* evita que el texto toque los bordes en pantallas chicas */
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BASE (MÓVIL): título chico para que no se desproporcione ni se corte. */
+.hero-banner__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-banner__texto {
+  font-size: 1rem;
+  max-width: 40ch; /* ch limita la línea a una cantidad legible de caracteres */
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-banner__cta {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background-color: var(--color-blanco);
+  color: var(--color-primario-oscuro);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: var(--radio);
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+.hero-banner__cta:hover {
+  background-color: var(--color-acento);
+  color: var(--color-blanco);
+}
+
+.contenido {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+.seccion__titulo {
+  font-family: var(--fuente-titulo);
+  color: var(--color-primario);
+  margin-bottom: 1rem;
+}
+
+.contenido p {
+  color: var(--color-texto-claro);
+}
+
+/* BREAKPOINT >= 768px: hay más ancho, el título puede crecer. */
+@media (min-width: 768px) {
+  .hero-banner__titulo {
+    font-size: 2.75rem;
+  }
+
+  .hero-banner__texto {
+    font-size: 1.125rem;
+  }
+}
+
+/* BREAKPOINT >= 1200px: escritorios grandes. */
+@media (min-width: 1200px) {
+  .hero-banner__titulo {
+    font-size: 3.5rem;
+  }
+}

@@ -1,0 +1,105 @@
+/* ============================================================
+   EJERCICIO 4 — Galería responsiva con enfoque MOBILE FIRST
+   Estilos base = móvil. Las media queries solo AGREGAN sobre eso.
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-fondo: #faf7f2;
+  --color-texto: #2c2416;
+  --color-texto-claro: #6b5d4d;
+  --color-primario: #8b4513;
+  --color-blanco: #ffffff;
+  --color-borde: #e8dfd3;
+  --fuente-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --fuente-titulo: Georgia, "Times New Roman", serif;
+  --sombra-suave: 0 2px 8px rgba(44, 36, 22, 0.08);
+  --radio: 8px;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-base);
+  line-height: 1.6;
+}
+
+.contenido {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.titulo {
+  font-family: var(--fuente-titulo);
+  color: var(--color-primario);
+  text-align: center;
+  font-size: 1.75rem; /* base móvil: crece en el breakpoint */
+  margin-bottom: 0.5rem;
+}
+
+.ayuda {
+  text-align: center;
+  color: var(--color-texto-claro);
+  font-size: 0.9375rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- BASE (MÓVIL) ------------------------------------
+   En pantallas chicas no hay espacio para varias columnas: las
+   tarjetas se apilan verticalmente y ocupan casi todo el ancho. */
+.galeria {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tarjeta-foto {
+  width: 95%;
+  margin: 0 auto; /* centra la tarjeta mientras está en columna */
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-suave);
+  padding: 12px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: calc(var(--radio) - 4px);
+}
+
+.tarjeta-foto p {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--color-texto-claro);
+  text-align: center;
+}
+
+/* ---------- BREAKPOINT >= 768px (tablet / escritorio) --------
+   Se usa min-width (nunca max-width) para que las reglas se sumen
+   a partir del móvil hacia arriba, que es la lógica Mobile First. */
+@media (min-width: 768px) {
+  .titulo {
+    font-size: 2.25rem;
+  }
+
+  .galeria {
+    flex-direction: row; /* vuelve a fila cuando hay ancho disponible */
+    flex-wrap: wrap; /* si entraran más de 3 tarjetas, bajan de línea en vez de comprimirse */
+  }
+
+  .tarjeta-foto {
+    width: 31%; /* 3 * 31% + 2 gaps entran en una fila */
+    margin: 0; /* el centrado ya lo resuelve el flex container */
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Meta viewport obligatoria: sin ella el móvil simula una pantalla
+         de escritorio y las media queries no se disparan como corresponde. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería responsiva — Mobile First</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <main class="contenido">
+      <h1 class="titulo">Galería responsiva</h1>
+      <p class="ayuda">
+        Achicá y agrandá la ventana: por debajo de 768px las tarjetas se
+        apilan en columna, por encima se acomodan en fila.
+      </p>
+
+      <div class="galeria">
+        <div class="tarjeta-foto">
+          <img src="../img/mesa-roble.svg" alt="Mesa de roble macizo" />
+          <p>Mesa de roble macizo, 180 x 90 cm.</p>
+        </div>
+
+        <div class="tarjeta-foto">
+          <img src="../img/sillon-chesterfield.svg" alt="Sillón Chesterfield de cuero" />
+          <p>Sillón Chesterfield tapizado en cuero.</p>
+        </div>
+
+        <div class="tarjeta-foto">
+          <img src="../img/escritorio-nordico.svg" alt="Escritorio de estilo nórdico" />
+          <p>Escritorio nórdico con cajonera lateral.</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

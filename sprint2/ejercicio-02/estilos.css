@@ -1,0 +1,92 @@
+/* ============================================================
+   EJERCICIO 2 — Modelo de Cajas (margin / border / padding / contenido)
+   ============================================================ */
+
+/* Reset universal. border-box es la clave del ejercicio: hace que el
+   width declarado sea el ancho TOTAL de la caja (incluye padding y
+   border), en vez del content-box por defecto que los suma aparte. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-fondo: #faf7f2;
+  --color-texto: #2c2416;
+  --color-texto-claro: #6b5d4d;
+  --color-primario: #8b4513;
+  --color-blanco: #ffffff;
+  --fuente-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --fuente-titulo: Georgia, "Times New Roman", serif;
+  --radio: 8px;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-base);
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------
+   DIAGRAMA DEL BOX MODEL DE .tarjeta-presentacion
+
+   ┌───────────────────────────────────────────────┐
+   │  MARGIN  40px arriba/abajo · auto a los lados │  ← separación externa
+   │  ┌─────────────────────────────────────────┐  │
+   │  │  BORDER  1px solid #cccccc              │  │  ← línea límite
+   │  │  ┌───────────────────────────────────┐  │  │
+   │  │  │  PADDING  25px                    │  │  │  ← aire interno
+   │  │  │  ┌─────────────────────────────┐  │  │  │
+   │  │  │  │  CONTENT                    │  │  │  │  ← h2 + p + p
+   │  │  │  │  350 - 25*2 - 1*2 = 298px   │  │  │  │
+   │  │  │  └─────────────────────────────┘  │  │  │
+   │  │  └───────────────────────────────────┘  │  │
+   │  └─────────────────────────────────────────┘  │
+   └───────────────────────────────────────────────┘
+
+   Con box-sizing: border-box el ancho total ocupado sigue siendo 350px:
+   el padding y el border se "comen" espacio del contenido en lugar de
+   agrandar la caja. Sin el reset, esta misma tarjeta mediría
+   350 + 50 + 2 = 402px.
+   ------------------------------------------------------------ */
+.tarjeta-presentacion {
+  width: 350px; /* ancho TOTAL de la caja gracias a border-box */
+  padding: 25px; /* aire interno: el contenido no se pega a los bordes */
+  border: 1px solid #cccccc; /* borde sutil que delimita la tarjeta */
+  box-shadow: 5px 5px 10px #e0e0e0; /* sombra suave: sensación de "flotar" */
+  margin: 40px auto; /* 40px arriba/abajo + auto a los lados = centrado horizontal */
+  background-color: var(--color-blanco);
+  border-radius: var(--radio);
+  text-align: center;
+}
+
+.tarjeta-presentacion__nombre {
+  font-family: var(--fuente-titulo);
+  color: var(--color-primario);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta-presentacion__cargo {
+  color: var(--color-texto-claro);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.tarjeta-presentacion__email {
+  font-size: 0.9375rem;
+}
+
+/* Selector descendente: solo los enlaces dentro de la tarjeta. */
+.tarjeta-presentacion a {
+  color: var(--color-primario);
+  text-decoration: none;
+}
+
+.tarjeta-presentacion a:hover {
+  text-decoration: underline;
+}

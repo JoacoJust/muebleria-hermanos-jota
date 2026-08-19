@@ -1,0 +1,110 @@
+/* ============================================================
+   EJERCICIO 1 — Selectores básicos (tipo, ID, clase, descendente)
+   ============================================================ */
+
+/* Reset universal: parte del estándar del curso. box-sizing: border-box
+   evita que padding y border agranden el ancho total de las cajas, y
+   anular margin/padding elimina las diferencias entre navegadores. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Variables de la paleta del proyecto: centralizan las decisiones de
+   diseño en un solo lugar en vez de repetir valores hardcodeados. */
+:root {
+  --color-fondo: #faf7f2;
+  --color-texto: #2c2416;
+  --color-texto-claro: #6b5d4d;
+  --color-primario: #8b4513;
+  --color-primario-oscuro: #6d3610;
+  --color-acento: #c8956c;
+  --color-blanco: #ffffff;
+  --color-borde: #e8dfd3;
+  --fuente-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --fuente-titulo: Georgia, "Times New Roman", serif;
+  --sombra-suave: 0 2px 8px rgba(44, 36, 22, 0.08);
+  --radio: 8px;
+}
+
+/* SELECTOR DE TIPO (body): estilos generales de la página. */
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-base);
+  line-height: 1.6;
+}
+
+/* Contenedor de lectura: limitar el ancho mejora la legibilidad
+   (una línea muy larga cansa la vista). */
+.contenido {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+/* --- SELECTOR DE TIPO -------------------------------------------------
+   Aplica a TODOS los <p> del documento, estén donde estén. No hace falta
+   agregarles clase: el tipo de etiqueta ya los identifica. */
+p {
+  font-family: var(--fuente-base);
+  font-size: 1.0625rem; /* rem en vez de px: respeta el tamaño base del usuario */
+  color: var(--color-texto-claro);
+  margin-bottom: 1rem;
+}
+
+/* --- SELECTOR DE ID ---------------------------------------------------
+   El ID es ÚNICO por página: identifica un solo elemento (el título
+   principal). Por eso se usa para un estilo que no se reutiliza. */
+#titulo-principal {
+  text-align: center;
+  color: var(--color-primario);
+  font-family: var(--fuente-titulo);
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+
+/* --- SELECTOR DE CLASE ------------------------------------------------
+   La clase es REUTILIZABLE: los dos <h2> comparten .subtitulo y por lo
+   tanto el mismo estilo, sin duplicar reglas. */
+.subtitulo {
+  color: var(--color-primario-oscuro);
+  font-weight: bold;
+  font-family: var(--fuente-titulo);
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 2px solid var(--color-borde);
+}
+
+/* La lista necesita padding-left propio porque el reset lo puso en 0 y
+   sin él desaparecerían las viñetas fuera del contenedor. */
+.lista-obras {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.lista-obras li {
+  margin-bottom: 0.5rem;
+}
+
+/* --- SELECTOR DESCENDENTE ---------------------------------------------
+   "ul a" afecta SOLO a los <a> que están dentro de una <ul>, a cualquier
+   nivel de anidación. Los enlaces sueltos del documento conservan su
+   subrayado, que es lo que permite auditar la diferencia. */
+ul a {
+  text-decoration: none;
+  color: var(--color-primario);
+  font-weight: bold;
+}
+
+/* Estado hover: al quitar el subrayado hay que devolver alguna señal
+   visual de que el elemento es interactivo. */
+ul a:hover {
+  color: var(--color-acento);
+  text-decoration: underline;
+}

@@ -1,0 +1,84 @@
+/* ============================================================
+   EJERCICIO 3 — Galería con Flexbox y anchos en porcentaje
+   ============================================================ */
+
+/* Reset universal ANTES de cualquier otra regla: sin border-box, el
+   padding y el border de las tarjetas se sumarían al 30% y las tres
+   tarjetas + el gap no entrarían en la fila (el layout se rompería). */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-fondo: #faf7f2;
+  --color-texto: #2c2416;
+  --color-texto-claro: #6b5d4d;
+  --color-primario: #8b4513;
+  --color-blanco: #ffffff;
+  --color-borde: #e8dfd3;
+  --fuente-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --fuente-titulo: Georgia, "Times New Roman", serif;
+  --sombra-suave: 0 2px 8px rgba(44, 36, 22, 0.08);
+  --radio: 8px;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-base);
+  line-height: 1.6;
+}
+
+.contenido {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.titulo {
+  font-family: var(--fuente-titulo);
+  color: var(--color-primario);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* CONTENEDOR FLEX: display: flex va en el PADRE, nunca en los hijos.
+   Es el padre el que decide cómo se distribuyen sus hijos. */
+.galeria {
+  display: flex;
+  gap: 20px; /* gap en vez de margin: no genera espacio sobrante en los extremos */
+}
+
+/* HIJO FLEX con ancho en porcentaje = layout fluido: la tarjeta se
+   redimensiona con el contenedor en vez de tener un ancho fijo en px.
+   3 * 30% + 2 * 20px de gap entra cómodo en el 100% disponible. */
+.tarjeta-foto {
+  width: 30%;
+  background-color: var(--color-blanco);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-suave);
+  padding: 12px;
+}
+
+/* Imágenes responsivas: nunca desbordan su contenedor y mantienen la
+   proporción original gracias a height: auto. display: block elimina el
+   espacio fantasma que deja el comportamiento inline por defecto. */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: calc(var(--radio) - 4px);
+}
+
+/* Selector descendente: solo los pies de foto dentro de las tarjetas. */
+.tarjeta-foto p {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--color-texto-claro);
+  text-align: center;
+}
