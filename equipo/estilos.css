@@ -1,0 +1,193 @@
+/* ============================================================
+   Página de equipo — solo HTML + CSS (sin JS, sin frameworks)
+   Mobile First: la base es una columna y crece con min-width.
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-fondo: #0f1424;
+  --color-superficie: #1b2238;
+  --color-texto: #f2f4fb;
+  --color-texto-claro: #b9c0d6;
+  --color-borde: #2c3455;
+  --color-acento: #ffcb05; /* amarillo Pikachu, hilo conductor de la página */
+  --fuente-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --fuente-titulo: Georgia, "Times New Roman", serif;
+  --radio: 14px;
+  --transicion: 0.2s ease;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-base);
+  line-height: 1.6;
+}
+
+/* Imágenes responsivas: nunca desbordan la tarjeta. */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cabecera {
+  padding: 3rem 1.25rem 2rem;
+  text-align: center;
+  background: linear-gradient(160deg, #1b2238 0%, #0f1424 100%);
+  border-bottom: 3px solid var(--color-acento);
+}
+
+.cabecera__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 2rem; /* base móvil; crece en el breakpoint */
+  color: var(--color-acento);
+  margin-bottom: 0.5rem;
+}
+
+.cabecera__bajada {
+  color: var(--color-texto-claro);
+  max-width: 55ch;
+  margin: 0 auto;
+}
+
+.contenido {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+/* CONTENEDOR FLEX: en móvil las tarjetas se apilan; el wrap ya está puesto
+   para que en pantallas grandes bajen de línea en vez de comprimirse. */
+.equipo {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.miembro {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  overflow: hidden; /* recorta la foto al radio de la tarjeta */
+  transition: transform var(--transicion), border-color var(--transicion);
+}
+
+/* Feedback al pasar el mouse: la tarjeta se levanta apenas. */
+.miembro:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-acento);
+}
+
+/* aspect-ratio mantiene todas las fotos con el mismo alto sin importar el
+   tamaño original, y object-fit evita que se deformen al recortarse. */
+.miembro__foto {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.miembro__cuerpo {
+  padding: 1.25rem;
+}
+
+.miembro__nombre {
+  font-family: var(--fuente-titulo);
+  font-size: 1.375rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Etiqueta del personaje: se muestra como "chip" para diferenciarla del texto. */
+.miembro__personaje {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-fondo);
+  background-color: var(--color-acento);
+  padding: 0.125rem 0.625rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.miembro__bio {
+  color: var(--color-texto-claro);
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
+.miembro__datos {
+  list-style: none; /* el reset quitó el padding, así que las viñetas quedarían fuera */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.miembro__datos li {
+  font-size: 0.8125rem;
+  color: var(--color-texto-claro);
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+  padding: 0.125rem 0.625rem;
+}
+
+/* Acento propio por personaje: solo cambia el color del chip, el resto de la
+   tarjeta se comparte para no duplicar reglas. */
+.miembro--charmander .miembro__personaje {
+  background-color: #f0762b;
+  color: #1a0d04;
+}
+
+/* Las tarjetas sin definir se atenúan para que se note que faltan datos. */
+.miembro--pendiente {
+  border-style: dashed;
+}
+
+.miembro--pendiente .miembro__personaje {
+  background-color: var(--color-borde);
+  color: var(--color-texto-claro);
+}
+
+.miembro--pendiente .miembro__foto {
+  opacity: 0.6;
+}
+
+.pie {
+  border-top: 1px solid var(--color-borde);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  color: var(--color-texto-claro);
+  font-size: 0.875rem;
+}
+
+/* ---------- >= 768px: dos columnas ---------- */
+@media (min-width: 768px) {
+  .cabecera__titulo {
+    font-size: 2.75rem;
+  }
+
+  .equipo {
+    flex-direction: row;
+  }
+
+  /* calc descuenta el gap para que dos tarjetas entren exactas en la fila. */
+  .miembro {
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+/* ---------- >= 1200px: tres columnas ---------- */
+@media (min-width: 1200px) {
+  .miembro {
+    width: calc((100% - 48px) / 3);
+  }
+}
