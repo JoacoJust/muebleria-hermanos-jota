@@ -1,0 +1,226 @@
+/* ============================================================
+   Plantel rojinegro — página estática solo HTML + CSS
+   Mobile First: la base es una columna y crece con min-width.
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-fondo: #121212;
+  --color-superficie: #1c1c1c;
+  --color-texto: #f5f5f5;
+  --color-texto-claro: #b3b3b3;
+  --color-borde: #2e2e2e;
+  --color-rojo: #d3272b; /* rojo rojinegro: color de acento de toda la página */
+  --color-negro: #000000;
+  --fuente-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --fuente-titulo: Georgia, "Times New Roman", serif;
+  --radio: 12px;
+  --transicion: 0.2s ease;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-base);
+  line-height: 1.6;
+}
+
+/* Imágenes responsivas: nunca desbordan su contenedor. */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Cabecera con las franjas rojinegras del club hechas con un degradado
+   repetido, para no depender de ninguna imagen de fondo. */
+.cabecera {
+  padding: 3rem 1.25rem 2.5rem;
+  text-align: center;
+  background-image: repeating-linear-gradient(
+    115deg,
+    var(--color-negro) 0 28px,
+    var(--color-rojo) 28px 56px
+  );
+  border-bottom: 4px solid var(--color-rojo);
+}
+
+.cabecera__cinta {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: var(--color-texto-claro);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.25rem 0.875rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.cabecera__titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 2.25rem; /* base móvil; crece en el breakpoint */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  /* Sombra dura para que el título se lea sobre las franjas de fondo. */
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.85);
+}
+
+.cabecera__bajada {
+  max-width: 52ch;
+  margin: 0.75rem auto 0;
+  color: #f0f0f0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radio);
+}
+
+.contenido {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+/* Contenedor flex: en móvil las fichas se apilan; el wrap ya queda listo
+   para que en pantallas grandes bajen de línea en vez de comprimirse. */
+.plantel {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.jugador {
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  overflow: hidden; /* recorta la foto siguiendo el radio de la ficha */
+  transition: transform var(--transicion), border-color var(--transicion);
+}
+
+.jugador:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-rojo);
+}
+
+/* position: relative para que el dorsal se pueda ubicar sobre la foto. */
+.jugador__figura {
+  position: relative;
+}
+
+/* aspect-ratio iguala la altura de todas las fotos aunque vengan con
+   tamaños distintos, y object-fit evita que se deformen al recortarse.
+   object-position: top prioriza la cara al recortar. */
+.jugador__foto {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: top;
+}
+
+.jugador__dorsal {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  font-family: var(--fuente-titulo);
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--color-texto);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.jugador__cuerpo {
+  padding: 1.25rem;
+  /* Línea roja superior: separa la foto de los datos del jugador. */
+  border-top: 3px solid var(--color-rojo);
+}
+
+.jugador__nombre {
+  font-family: var(--fuente-titulo);
+  font-size: 1.375rem;
+  margin-bottom: 0.25rem;
+}
+
+.jugador__posicion {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: var(--color-rojo);
+  color: var(--color-texto);
+  padding: 0.125rem 0.625rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.jugador__bio {
+  color: var(--color-texto-claro);
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
+.jugador__stats {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  border-top: 1px solid var(--color-borde);
+  padding-top: 0.75rem;
+}
+
+/* Cada stat ocupa un tercio exacto de la fila para que queden alineadas
+   entre fichas distintas. */
+.jugador__stats li {
+  flex: 1;
+  text-align: center;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-texto-claro);
+}
+
+.jugador__stat-valor {
+  display: block;
+  font-family: var(--fuente-titulo);
+  font-size: 1.25rem;
+  color: var(--color-texto);
+}
+
+.pie {
+  border-top: 1px solid var(--color-borde);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  color: var(--color-texto-claro);
+  font-size: 0.875rem;
+}
+
+/* ---------- >= 768px: dos columnas ---------- */
+@media (min-width: 768px) {
+  .cabecera__titulo {
+    font-size: 3rem;
+  }
+
+  .plantel {
+    flex-direction: row;
+  }
+
+  /* calc descuenta el gap para que dos fichas entren exactas en la fila. */
+  .jugador {
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+/* ---------- >= 1200px: tres columnas ---------- */
+@media (min-width: 1200px) {
+  .jugador {
+    width: calc((100% - 48px) / 3);
+  }
+}
