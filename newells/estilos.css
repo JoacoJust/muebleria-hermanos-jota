@@ -83,7 +83,7 @@ img {
 }
 
 .contenido {
-  max-width: 1150px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 2rem 1.25rem 3rem;
 }
@@ -218,9 +218,51 @@ img {
   }
 }
 
-/* ---------- >= 1200px: tres columnas ---------- */
-@media (min-width: 1200px) {
+/* ---------- >= 1024px: tres columnas ---------- */
+@media (min-width: 1024px) {
   .jugador {
     width: calc((100% - 48px) / 3);
+  }
+}
+
+/* ---------- >= 1200px: las cinco fichas en una sola fila ---------- */
+@media (min-width: 1200px) {
+  .plantel {
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .jugador {
+    width: calc((100% - 64px) / 5);
+  }
+
+  /* La ficha se angosta al quintuplicar las columnas: se compacta el
+     interior para que la biografía siga entrando sin desbordar. */
+  .jugador__cuerpo {
+    padding: 1rem;
+  }
+
+  .jugador__nombre {
+    font-size: 1.125rem;
+  }
+
+  .jugador__bio {
+    font-size: 0.8125rem;
+  }
+
+  .jugador__dorsal {
+    font-size: 2rem;
+  }
+
+  .jugador__stats {
+    gap: 4px;
+  }
+
+  .jugador__stats li {
+    font-size: 0.625rem;
+  }
+
+  .jugador__stat-valor {
+    font-size: 1.0625rem;
   }
 }
