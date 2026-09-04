@@ -611,25 +611,29 @@ textarea:focus {
   border-radius: 8px;
 }
 
-.resumen-carrito dl {
+.resumen-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-bottom: var(--spacing-md);
 }
 
-.resumen-carrito dt,
-.resumen-carrito dd {
-  display: inline;
+.resumen-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.resumen-carrito dt {
+.resumen-item dt {
   font-weight: 600;
+  margin: 0;
 }
 
-.resumen-carrito dd {
-  float: right;
-  margin-bottom: var(--spacing-xs);
+.resumen-item dd {
+  margin: 0;
 }
 
-.resumen-carrito dd.total-final {
+.resumen-item.total .total-final {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-secondary);
