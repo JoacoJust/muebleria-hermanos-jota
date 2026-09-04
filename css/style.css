@@ -622,6 +622,7 @@ textarea:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%; 
 }
 
 .resumen-item dt {
@@ -634,9 +635,11 @@ textarea:focus {
 }
 
 .resumen-item.total .total-final {
-  font-size: 1.25rem;
+ font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-secondary);
+  margin-left: auto; 
+  text-align: right;
 }
 
 .resumen-carrito .btn {
