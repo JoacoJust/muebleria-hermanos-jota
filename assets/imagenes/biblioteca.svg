@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
-  <rect width="400" height="300" fill="#e8dfd3"/>
-  <rect x="80" y="160" width="240" height="20" fill="#8b4513"/>
-  <rect x="80" y="100" width="240" height="60" fill="#6b5d4d" rx="4"/>
-  <rect x="90" y="180" width="15" height="30" fill="#6d3610"/>
-  <rect x="295" y="180" width="15" height="30" fill="#6d3610"/>
-  <text x="200" y="270" text-anchor="middle" fill="#6b5d4d" font-family="sans-serif" font-size="14">Cama Queen Platform</text>
-</svg>
