@@ -7,7 +7,7 @@ E-commerce frontend para la materia de Desarrollo Web del ITBA (Sprint 2).
 | Nombre | GitHub |
 |--------|--------|
 | Joaquín Just | [@JoacoJust](https://github.com/JoacoJust) |
-| XX | [@XX](https://github.com/XX) |
+| Ruiz Diaz Agostina | [@ruizdiazagostina](https://github.com/ruizdiazagostina) |
 | XX | [@XX](https://github.com/XX) |
 | XX | [@XX](https://github.com/XX) |
 
