@@ -1,6 +1,6 @@
 # Mueblería Hermanos Jota
 
-E-commerce frontend para la materia de Desarrollo Web del ITBA (Sprint 1 y 2).
+E-commerce frontend para el Curso de Desarrollo Web Full Stack del ITBA (Sprint 1 y 2).
 
 ## Integrantes
 
