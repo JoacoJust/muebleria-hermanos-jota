@@ -1,6 +1,6 @@
 # Mueblería Hermanos Jota
 
-E-commerce frontend para la materia de Desarrollo Web del ITBA (Sprint 2).
+E-commerce frontend para la materia de Desarrollo Web del ITBA (Sprint 1 y 2).
 
 ## Integrantes
 
@@ -8,8 +8,8 @@ E-commerce frontend para la materia de Desarrollo Web del ITBA (Sprint 2).
 |--------|--------|
 | Joaquín Just | [@JoacoJust](https://github.com/JoacoJust) |
 | Ruiz Diaz Agostina | [@ruizdiazagostina](https://github.com/ruizdiazagostina) |
-| XX | [@XX](https://github.com/XX) |
-| XX | [@XX](https://github.com/XX) |
+| Marcos Ford | [@MarcosFord5](https://github.com/MarcosFord5) |
+| Rocio Lazo | [@Rociolazo](https://github.com/Rociolazo) |
 
 > Proyecto grupal: Cuatro integrantes en el equipo.
 
