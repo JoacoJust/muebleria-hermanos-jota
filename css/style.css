@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
 /* ====================================
    1. RESET UNIVERSAL
    ==================================== */
@@ -11,13 +12,16 @@
    2. VARIABLES Y ESTILOS GLOBALES
    ==================================== */
 :root {
-  --color-primary: #2c3e50;
-  --color-secondary: #e74c3c;
-  --color-accent: #3498db;
-  --color-success: #27ae60;
-  --color-light: #ecf0f1;
-  --color-dark: #2c3e50;
-  --color-border: #bdc3c7;
+  --color-primary: #A0522D;      /* Siena Tostado */
+    --color-secondary: #87A96B;    /* Verde Salvia */
+  --color-light: #F5E6D3;        /* Alabastro Cálido */
+  --color-accent: #D4A437;       /* Vara de Oro */
+  --color-pink: #C47A6D;         /* Rosa Polvoriento */
+
+  --color-dark: #33251F;
+  --color-muted: #75665D;
+  --color-border: #DCCABB;
+  --color-white: #FFFFFF;
 
   --font-principal: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --font-size-base: 16px;
@@ -54,11 +58,14 @@ img {
    3. TIPOGRAFÍA
    ==================================== */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-family: var(--font-titulos);
+  font-weight: 600;
   line-height: 1.2;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
   margin-bottom: var(--spacing-sm);
 }
-
 h1 { font-size: 2rem; }
 h2 { font-size: 1.75rem; }
 h3 { font-size: 1.5rem; }
@@ -80,6 +87,290 @@ a:hover {
 
 ul {
   list-style: none;
+}
+/* =========================
+   PRODUCTOS DESTACADOS
+========================= */
+
+.destacados {
+  background-color: #f3e9d8;
+  padding: 100px 7%;
+}
+
+.destacados .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.seccion-etiqueta {
+  margin: 0 0 15px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #a85d2a;
+  text-transform: uppercase;
+}
+
+.destacados h2 {
+  margin: 0 0 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 52px;
+  font-weight: normal;
+  line-height: 1.1;
+  color: #3d2b20;
+}
+
+.descripcion-seccion {
+  max-width: 500px;
+  margin: 0 0 50px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #66564b;
+}
+
+
+/* =========================
+   GRILLA DE PRODUCTOS
+========================= */
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .destacados {
+    padding: 70px 5%;
+  }
+
+  .destacados h2 {
+    font-size: 42px;
+  }
+
+  .grid-productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .destacados {
+    padding: 60px 20px;
+  }
+
+  .destacados h2 {
+    font-size: 36px;
+  }
+
+  .grid-productos {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* =========================
+   SOBRE NOSOTROS
+========================= */
+
+.sobre-nosotros {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background-color: #f3e9d8;
+}
+
+.sobre-imagen {
+  width: 100%;
+  height: 600px;
+}
+
+.sobre-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sobre-texto {
+  padding: 80px;
+}
+
+.sobre-texto h2 {
+  margin: 0 0 25px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 48px;
+  font-weight: normal;
+  line-height: 1.15;
+  color: #3d2b20;
+}
+
+.sobre-texto p {
+  max-width: 500px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #66564b;
+}
+
+.btn-outline {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 25px;
+  border: 1px solid #a85d2a;
+  color: #a85d2a;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background-color: #a85d2a;
+  color: white;
+}
+
+
+/* SOBRE NOSOTROS EN CELULAR */
+
+@media (max-width: 800px) {
+
+  .sobre-nosotros {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-imagen {
+    height: 400px;
+  }
+
+  .sobre-texto {
+    padding: 60px 30px;
+  }
+
+  .sobre-texto h2 {
+    font-size: 38px;
+  }
+
+}
+
+/* =========================
+   SOSTENIBILIDAD
+========================= */
+
+.sostenibilidad {
+  background-color: #3d2b20;
+  color: #f3e9d8;
+  padding: 110px 7%;
+}
+
+.sostenibilidad-contenido {
+  max-width: 700px;
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.sostenibilidad .seccion-etiqueta {
+  color: #d99a55;
+  margin-bottom: 20px;
+}
+
+.sostenibilidad-contenido h2 {
+  margin: 0 0 25px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 52px;
+  font-weight: normal;
+  line-height: 1.1;
+}
+
+.sostenibilidad-contenido > p:last-child {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #d8c9ba;
+}
+
+
+/* TARJETAS */
+
+.sostenibilidad-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(243, 233, 216, 0.3);
+}
+
+.sostenibilidad-grid article {
+  padding: 45px 35px;
+  border-right: 1px solid rgba(243, 233, 216, 0.3);
+}
+
+.sostenibilidad-grid article:last-child {
+  border-right: none;
+}
+
+.sostenibilidad-grid span {
+  display: block;
+  margin-bottom: 25px;
+  font-size: 25px;
+}
+
+.sostenibilidad-grid h3 {
+  margin: 0 0 15px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: normal;
+  color: #f3e9d8;
+}
+
+.sostenibilidad-grid p {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #d8c9ba;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 800px) {
+
+  .sostenibilidad {
+    padding: 80px 25px;
+  }
+
+  .sostenibilidad-contenido h2 {
+    font-size: 40px;
+  }
+
+  .sostenibilidad-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sostenibilidad-grid article {
+    border-right: none;
+    border-bottom: 1px solid rgba(243, 233, 216, 0.3);
+  }
+
+  .sostenibilidad-grid article:last-child {
+    border-bottom: none;
+  }
+
 }
 
 /* ====================================

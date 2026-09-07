@@ -8,55 +8,127 @@
 </head>
 <body>
   <header id="header" class="header">
-    <div class="header-container">
-      <div class="logo">
-        <a href="index.html">
-          <h1>Hermanos Jota</h1>
-          <p class="tagline">Muebles de Calidad</p>
-        </a>
-      </div>
-      <nav class="nav-principal">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="productos.html">Catálogo</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-          <li><a href="carrito.html" class="carrito-link">🛒 Carrito <span class="contador-carrito">0</span></a></li>
-        </ul>
-      </nav>
+  <div class="header-container">
+
+    <div class="logo">
+      <a href="index.html">
+        <h1>HERMANOS JOTA</h1>
+      </a>
     </div>
-  </header>
+
+    <nav class="nav-principal">
+      <ul>
+        <li><a href="index.html" class="activo">INICIO</a></li>
+        <li><a href="productos.html">CATÁLOGO</a></li>
+        <li><a href="contacto.html">CONTACTO</a></li>
+      </ul>
+    </nav>
+
+    <a href="carrito.html" class="carrito-link">
+      🛍 <span class="contador-carrito">0</span>
+    </a>
+
+  </div>
+</header>
 
   <main id="main-index">
     <section class="hero">
-      <div class="hero-content">
-        <h2>Transforma tu Espacio</h2>
-        <p>Descubrí nuestra colección de muebles diseñados para tu hogar</p>
-        <a href="productos.html" class="btn btn-primary">Ver Catálogo</a>
-      </div>
-    </section>
+  <div class="hero-content">
+    <p class="hero-subtitulo">MUEBLES ARTESANALES</p>
+    <h2>Diseñamos muebles<br>con historia.</h2>
+    <p>Creaciones únicas hechas para transformar tus espacios.</p>
+    <a href="productos.html" class="btn btn-primary">VER CATÁLOGO</a>
+  </div>
+</section>
 
-    <section class="destacados">
-      <div class="container">
-        <h2>Productos Destacados</h2>
-        <div class="grid-productos" id="grid-destacados"></div>
-      </div>
-    </section>
+<section class="sobre-nosotros">
+  <div class="sobre-imagen">
+    <img src="img/imgmuebleria.jpg" alt="Muebles Hermanos Jota">
+  </div>
 
-    <section class="beneficios">
-      <article class="beneficio">
-        <h3>Envío Gratis</h3>
-        <p>En compras mayores a $50.000</p>
-      </article>
-      <article class="beneficio">
-        <h3>Garantía</h3>
-        <p>2 años en todos nuestros muebles</p>
-      </article>
-      <article class="beneficio">
-        <h3>Soporte 24/7</h3>
-        <p>Equipo listo para ayudarte</p>
-      </article>
-    </section>
+  <div class="sobre-texto">
+    <p class="seccion-etiqueta">SOBRE NOSOTROS</p>
+    <h2>Hecho con dedicación,<br>pensado para durar.</h2>
+
+    <p>
+      Somos una mueblería familiar dedicada a crear piezas únicas
+      para cada espacio.
+    </p>
+
+    <p>
+      Cada mueble combina materiales de calidad, diseño y trabajo
+      artesanal.
+    </p>
+
+    <a href="contacto.html" class="btn btn-outline">
+      HABLAR CON NOSOTROS
+    </a>
+  </div>
+</section>
+
+ <section class="destacados">
+  <div class="container">
+<p class="seccion-etiqueta">NUESTRA COLECCIÓN</p>
+<h2>Productos destacados</h2>
+<p class="descripcion-seccion">
+  Piezas creadas para acompañar tus espacios durante años.
+</p>
+<div class="grid-productos" id="grid-destacados"></div>
+  </div>
+</section>
+
+
+   <section class="beneficios">
+  <div class="beneficio">
+    <span>01</span>
+    <h3>Maderas seleccionadas</h3>
+    <p>Elegimos materiales de calidad para cada pieza.</p>
+  </div>
+
+  <div class="beneficio">
+    <span>02</span>
+    <h3>Hecho artesanalmente</h3>
+    <p>Cada mueble recibe atención en cada detalle.</p>
+  </div>
+
+  <div class="beneficio">
+    <span>03</span>
+    <h3>Diseño para durar</h3>
+    <p>Creaciones pensadas para acompañarte durante años.</p>
+  </div>
+</section>
   </main>
+
+  <section class="sostenibilidad">
+  <div class="sostenibilidad-contenido">
+    <p class="seccion-etiqueta">COMPROMISO AMBIENTAL</p>
+    <h2>Sustentabilidad y<br>materiales</h2>
+    <p>
+      Nuestro compromiso con el medio ambiente guía cada decisión
+      en nuestro proceso creativo y productivo.
+    </p>
+  </div>
+
+  <div class="sostenibilidad-grid">
+    <article>
+      <span>🌿</span>
+      <h3>Maderas certificadas</h3>
+      <p>Trabajamos con materiales seleccionados de fuentes responsables.</p>
+    </article>
+
+    <article>
+      <span>✦</span>
+      <h3>Acabados naturales</h3>
+      <p>Priorizamos acabados duraderos y materiales de calidad.</p>
+    </article>
+
+    <article>
+      <span>♻</span>
+      <h3>Cero desperdicio</h3>
+      <p>Aprovechamos los materiales para reducir nuestros residuos.</p>
+    </article>
+  </div>
+</section>
 
   <footer class="footer">
     <div class="footer-content">
@@ -74,9 +146,9 @@
       </section>
       <section class="footer-section">
         <h4>Contacto</h4>
-        <p>📞 +54 11 1234-5678</p>
+        <p>📞 +54 11 4567-8900</p>
         <p>📧 info@hermanosjota.com</p>
-        <p>📍 Lomas de Zamora, Buenos Aires</p>
+        <p>📍 Av. San Juan 2847 — Barrio de San Cristóbal, Ciudad Autónoma de Buenos Aires</p>
       </section>
     </div>
     <div class="footer-bottom">
