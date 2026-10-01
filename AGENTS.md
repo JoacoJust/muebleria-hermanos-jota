@@ -72,3 +72,12 @@ E-commerce de muebles "Hermanos Jota" (Buenos Aires, Argentina). Aplicación cli
 ## Formato de tus respuestas
 
 Breves y directas. Al terminar una tarea: (1) qué hiciste, (2) archivos tocados, (3) cómo verificarlo, (4) dudas o riesgos, (5) mensaje de commit sugerido. Nada de relleno.
+
+## Formato de commits
+
+Los commits deben incluir el footer:
+```
+Realizado por Joaquin Just
+```
+
+NO incluir "Devin", "Co-Authored-By", ni ninguna otra evidencia de IA. Solo el nombre humano.
