@@ -3,10 +3,10 @@ import { cn } from "../../utils/cn";
 
 const variants = {
   primary:
-    "bg-brand-siena text-brand-alabastro hover:bg-[#8a4526] disabled:bg-brand-borde disabled:text-brand-muted",
+    "bg-brand-siena text-brand-alabastro hover:bg-[#8a4526] hover:shadow-md disabled:bg-brand-borde disabled:text-brand-muted disabled:hover:shadow-none",
   outline:
-    "border border-brand-siena text-brand-siena bg-transparent hover:bg-brand-siena hover:text-brand-alabastro",
-  ghost: "text-brand-siena hover:bg-brand-borde/40",
+    "border-2 border-brand-siena text-brand-siena bg-transparent hover:bg-brand-siena hover:text-brand-alabastro hover:shadow-md",
+  ghost: "text-brand-siena hover:bg-brand-borde/40 hover:shadow-sm",
 };
 
 function buttonClassName(variant, className) {

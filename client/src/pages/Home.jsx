@@ -10,21 +10,27 @@ export function Home() {
   const destacados = productos.filter((item) => item.descuento > 0).slice(0, 3);
 
   return (
-    <div className="space-y-16">
-      <section className="rounded-lg bg-white px-6 py-16 shadow-soft">
-        <p className="font-sans text-sm font-medium uppercase tracking-[0.08em] text-brand-siena">
-          Muebles artesanales
-        </p>
-        <h1 className="mt-4 font-display text-4xl uppercase tracking-[0.1em] md:text-5xl">
-          Cada pieza cuenta la historia de manos expertas y materiales nobles
-        </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-muted">
-          Diseñamos y fabricamos en Buenos Aires piezas pensadas para durar, con maderas nativas y
-          acabados naturales.
-        </p>
-        <Button className="mt-8" to="/productos">
-          Ver catálogo
-        </Button>
+    <div className="space-y-20">
+      <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-siena to-[#8a4526] px-6 py-20 shadow-soft-lg">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-white/20 blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-brand-vara/20 blur-3xl"></div>
+        </div>
+        <div className="relative z-10">
+          <p className="font-sans text-sm font-medium uppercase tracking-[0.08em] text-brand-alabastro/90">
+            Muebles artesanales
+          </p>
+          <h1 className="mt-4 font-display text-4xl uppercase tracking-[0.1em] text-brand-alabastro md:text-5xl lg:text-6xl">
+            Cada pieza cuenta la historia de manos expertas y materiales nobles
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-brand-alabastro/90">
+            Diseñamos y fabricamos en Buenos Aires piezas pensadas para durar, con maderas nativas y
+            acabados naturales.
+          </p>
+          <Button className="mt-8 bg-brand-alabastro text-brand-siena hover:bg-white hover:shadow-lg" to="/productos">
+            Ver catálogo
+          </Button>
+        </div>
       </section>
 
       <section>

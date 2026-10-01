@@ -17,13 +17,13 @@ export function Footer() {
           <h2 className="font-display text-lg uppercase tracking-[0.1em]">Enlaces</h2>
           <ul className="mt-3 space-y-2">
             <li>
-              <Link to="/">Inicio</Link>
+              <Link to="/" className="transition-colors duration-200 hover:text-brand-salvia">Inicio</Link>
             </li>
             <li>
-              <Link to="/productos">Catálogo</Link>
+              <Link to="/productos" className="transition-colors duration-200 hover:text-brand-salvia">Catálogo</Link>
             </li>
             <li>
-              <Link to="/contacto">Contacto</Link>
+              <Link to="/contacto" className="transition-colors duration-200 hover:text-brand-salvia">Contacto</Link>
             </li>
           </ul>
         </section>
