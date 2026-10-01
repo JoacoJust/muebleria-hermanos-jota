@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../../context/CartContext";
 import { formatCurrency, imageUrl } from "../../utils/format";
 import { Button } from "../ui/Button";
 
@@ -13,8 +12,8 @@ export function ProductCard({
   imagen,
   enStock,
   cantidad,
+  addToCart,
 }) {
-  const { addToCart } = useCart();
   const producto = {
     id,
     nombre,

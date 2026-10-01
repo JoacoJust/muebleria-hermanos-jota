@@ -1,8 +1,9 @@
+import { useOutletContext } from "react-router-dom";
 import { CartView } from "../components/cart/CartView";
-import { useCart } from "../context/CartContext";
 
 export function CartPage() {
-  const { items, subtotal, shipping, total, updateQuantity, removeFromCart, clearCart } = useCart();
+  const { items, subtotal, shipping, total, updateQuantity, removeFromCart, clearCart } =
+    useOutletContext();
 
   return (
     <section>
