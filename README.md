@@ -1,131 +1,203 @@
 # Mueblería Hermanos Jota
 
-E-commerce de muebles artesanales (Buenos Aires). Monorepo **Sprint 3-4**: API REST en Node/Express y SPA en React.
-
 [![CI](https://img.shields.io/badge/CI-GitHub%20Actions-33251F)](.github/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-A0522D.svg)](LICENSE)
 
-## Equipo
+Plataforma de e-commerce para muebles artesanales de fabricación argentina. Aplicación cliente-servidor desarrollada durante el Sprint 3-4 del curso de Desarrollo Web Full Stack (ITBA).
 
-| Nombre             | GitHub                                                   |
+## Visión General
+
+Mueblería Hermanos Jota es una tienda online que ofrece:
+
+- **Catálogo interactivo** con filtrado por categoría, precio y búsqueda
+- **Detalle de producto** con especificaciones técnicas completas
+- **Carrito de compras** con gestión de stock y cálculo de envío
+- **Formulario de contacto** con validación en tiempo real
+
+La aplicación consta de dos servicios independientes que se comunican a través de una API REST.
+
+## Equipo de Desarrollo
+
+| Integrante         | GitHub                                                   |
 | ------------------ | -------------------------------------------------------- |
 | Joaquín Just       | [@JoacoJust](https://github.com/JoacoJust)               |
 | Ruiz Diaz Agostina | [@ruizdiazagostina](https://github.com/ruizdiazagostina) |
 | Marcos Ford        | [@MarcosFord5](https://github.com/MarcosFord5)           |
 | Rocio Lazo         | [@Rociolazo](https://github.com/Rociolazo)               |
 
-## De qué trata
+## Stack Tecnológico
 
-Catálogo, detalle, carrito (estado React + `localStorage`) y contacto. Los productos salen de `GET /api/productos`; el cliente no usa el array estático.
+### Backend
 
-**Estadio:** Sprint 3-4 (ITBA). El sitio HTML/JS anterior quedó en `legacy/` como referencia. `POST /api/contacto` y pedidos no están implementados (el formulario simula el envío).
+- **Runtime**: Node.js 22
+- **Framework**: Express 4.x
+- **Seguridad**: CORS, Helmet
+- **Testing**: Jest + Supertest
+- **Herramientas**: dotenv, nodemon (desarrollo)
 
-Demo anterior (estática): https://joacojust.github.io/muebleria-hermanos-jota/
+### Frontend
 
-## Stack
+- **Framework**: React 18 (create-react-app)
+- **Enrutamiento**: React Router 6.x
+- **Estilos**: Tailwind CSS 3.4.x
+- **Testing**: React Testing Library
+- **Linting**: ESLint, Prettier
 
-- Node.js 22, npm workspaces
-- Backend: Express 4, cors, helmet, dotenv, Jest + Supertest
-- Frontend: React 18 (CRA), React Router 6, Tailwind 3.4, Testing Library
-- Calidad: ESLint, Prettier, Husky, lint-staged, commitlint
+### Calidad de Código
 
-## Arquitectura
+- **Husky**: Git hooks pre-commit y commit-msg
+- **lint-staged**: Linting automático en archivos staged
+- **commitlint**: Validación de mensajes de commit (Conventional Commits)
+
+## Arquitectura del Proyecto
 
 ```
 /
-├── backend/          API (puerto 4000), datos en data/productos.js
-├── client/           SPA (puerto 3000, proxy a la API)
-├── docs/             contrato, auditoría, kit de marca
-├── legacy/           sitio estático Sprint 1-2
-└── .github/workflows/ci.yml
+├── backend/                 API REST (puerto 4000)
+│   ├── data/               Datos de productos
+│   ├── public/images/      Imágenes del catálogo
+│   ├── controllers/        Lógica de negocio
+│   ├── routes/             Definición de endpoints
+│   └── middlewares/        Manejo de errores y logging
+├── client/                  SPA React (puerto 3000)
+│   ├── src/
+│   │   ├── components/     Componentes UI
+│   │   ├── pages/          Páginas de la aplicación
+│   │   ├── hooks/          Custom hooks
+│   │   └── utils/          Utilidades
+│   └── public/             Assets estáticos
+├── docs/                    Documentación
+│   ├── api-contract.md     Contrato de la API
+│   ├── AUDITORIA.md        Plan de pruebas adversariales
+│   ├── USO-DE-IA.md        Registro de uso de IA
+│   └── brand-kit/          Kit de marca oficial
+└── .github/workflows/       CI/CD con GitHub Actions
 ```
 
-Contrato: [docs/api-contract.md](docs/api-contract.md).
+## Características Técnicas
 
-### Decisiones de arquitectura
+### Gestión de Estado
 
-- **ESLint 9 vs react-scripts**: ESLint 9 en la raíz choca con el plugin de ESLint de react-scripts 5. Se usa `DISABLE_ESLINT_PLUGIN=true` en los scripts `start` y `build` del cliente, ya que el lint corre aparte con `npm run lint`. Esto permite mantener un solo config de ESLint moderno en la raíz sin conflictos.
+- El carrito se gestiona en `App.js` mediante el hook `useCart`
+- Las props se distribuyen a través de `Outlet context` en `Layout`
+- Persistencia en `localStorage` con manejo de errores
 
-- **Carrito en App.js con props**: El estado del carrito se gestiona en `App.js` usando el hook `useCart` y se pasa a los componentes hijos a través de props. Se usa `Outlet context` en `Layout` para evitar prop drilling excesivo. Esta decisión cumple con la consigna y simplifica la arquitectura al eliminar Context API.
+### Validación de Formularios
 
-- **Formulario de contacto con useState controlado**: `ContactForm` usa inputs controlados con `useState` en lugar de `react-hook-form` + `zod`. La validación se maneja en `utils/validateContact.js` con las mismas reglas que antes. Esto reduce dependencias y mantiene el código más explícito.
+- Formulario de contacto con inputs controlados (`useState`)
+- Validación personalizada en `utils/validateContact.js`
+- Mensajes de error en español rioplatense
 
-- **Proxy de CRA**: El cliente usa `proxy: "http://localhost:4000"` en `package.json` para redirigir las peticiones a la API en desarrollo. En producción, `REACT_APP_API_URL` debe apuntar al origen de la API.
+### Seguridad
 
-- **precioFinal calculado en el backend**: Según el contrato de API, `precioFinal` se calcula en el servidor como `precio - (precio * descuento / 100)`. Esto garantiza consistencia y evita que el cliente manipule precios.
+- Headers de seguridad con Helmet
+- Validación de inputs en backend y frontend
+- Sin exposición de stacks en producción
+- Variables de entorno para configuración sensible
 
-- **Imágenes servidas por el backend**: Las imágenes se sirven desde `backend/public/images/` con `GET /images/<archivo>`. Esto permite control centralizado y futuras optimizaciones (CDN, cache, etc.).
+### Imágenes
 
-## Requisitos
+- Servidas desde el backend (`GET /images/<archivo>`)
+- Fotos reales del kit de marca oficial
+- Control centralizado para futuras optimizaciones (CDN, cache)
 
-- Node.js >= 20 (recomendado 22, ver `.nvmrc`)
-- npm
+## Requisitos Previos
+
+- Node.js >= 20 (recomendado 22)
+- npm >= 9
 
 ## Instalación
 
 ```bash
+# Clonar el repositorio
 git clone https://github.com/JoacoJust/muebleria-hermanos-jota.git
 cd muebleria-hermanos-jota
+
+# Instalar dependencias
 npm run install:all
+
+# Configurar variables de entorno
 cp backend/.env.example backend/.env
 cp client/.env.example client/.env
 ```
 
-En Windows PowerShell: `Copy-Item backend/.env.example backend/.env`
+En Windows PowerShell:
+
+```powershell
+Copy-Item backend/.env.example backend/.env
+Copy-Item client/.env.example client/.env
+```
 
 ## Ejecución
 
-Por separado:
+### Servicios Independientes
 
 ```bash
-# Backend (puerto 4000)
+# Backend (API)
 cd backend
 npm run dev
+# Disponible en http://localhost:4000
 
-# Cliente (puerto 3000)
+# Frontend (React)
 cd client
 npm start
+# Disponible en http://localhost:3000
 ```
 
-Ambos a la vez:
+### Desarrollo Concurrente
 
 ```bash
 npm run dev
 ```
 
+Este comando inicia ambos servicios simultáneamente:
+
 - Cliente: http://localhost:3000
-- API: http://localhost:4000 — `GET /api/health`, `GET /api/productos`
+- API: http://localhost:4000
 
-`REACT_APP_API_URL` vacío usa el proxy de CRA. En un build de producción, apuntar al origen de la API.
+## Scripts Disponibles
 
-## Scripts
+| Comando               | Descripción                               |
+| --------------------- | ----------------------------------------- |
+| `npm run install:all` | Instala dependencias de raíz y workspaces |
+| `npm run dev`         | Inicia API y cliente en modo desarrollo   |
+| `npm test`            | Ejecuta suite de tests completo           |
+| `npm run lint`        | Ejecuta linter de código                  |
+| `npm run format`      | Formatea código con Prettier              |
+| `npm run build`       | Genera build de producción del cliente    |
 
-| Comando               | Qué hace                  |
-| --------------------- | ------------------------- |
-| `npm run install:all` | Instala raíz + workspaces |
-| `npm run dev`         | API (nodemon) + React     |
-| `npm test`            | Jest backend y cliente    |
-| `npm run lint`        | ESLint                    |
-| `npm run format`      | Prettier                  |
-| `npm run build`       | Build del cliente         |
+## Testing
 
-## Tests
+### Backend
 
-Backend: ids inválidos, 404, JSON malformado, helmet, imágenes. Cliente: lista (carga/error/vacío), `useCart` (stock, envío $50.000 / $50.001, `localStorage` corrupto), `ContactForm` (límites de Zod).
+- Validación de IDs inválidos
+- Manejo de rutas inexistentes (404)
+- JSON malformado (400)
+- Headers de seguridad (Helmet)
+- Serving de imágenes
 
-Plan adversarial: [docs/AUDITORIA.md](docs/AUDITORIA.md).
+### Frontend
 
-## Commits
+- Estados de carga, error y vacío en listados
+- Lógica del carrito (stock, envío $50.000/$50.001)
+- Recuperación de `localStorage` corrupto
+- Validación de formulario de contacto
 
-Conventional Commits, forzados por Husky. Guía: [CONTRIBUTING.md](CONTRIBUTING.md). Uso de IA: [docs/USO-DE-IA.md](docs/USO-DE-IA.md).
+El plan de pruebas adversariales está documentado en [docs/AUDITORIA.md](docs/AUDITORIA.md).
 
-## Roadmap
+## Documentación
 
-- Fotos reales del kit de marca en lugar de SVG de reemplazo
-- `POST /api/contacto` según el contrato
-- Checkout / `POST /api/pedidos` (fuera de esta entrega)
-- Agregar capturas de pantalla en `docs/screenshots/` (home, catálogo, detalle, carrito, contacto, móvil)
+- **Contrato de API**: [docs/api-contract.md](docs/api-contract.md)
+- **Auditoría**: [docs/AUDITORIA.md](docs/AUDITORIA.md)
+- **Uso de IA**: [docs/USO-DE-IA.md](docs/USO-DE-IA.md)
+- **Guía de Contribución**: [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## Próximos Pasos
+
+- Implementación de `POST /api/contacto` según contrato
+- Sistema de checkout y `POST /api/pedidos`
+- Capturas de pantalla en `docs/screenshots/`
 
 ## Licencia
 
-MIT. Ver [LICENSE](LICENSE).
+Este proyecto está licenciado bajo MIT License - ver [LICENSE](LICENSE) para detalles.
