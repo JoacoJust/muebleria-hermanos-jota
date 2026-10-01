@@ -1,14 +1,11 @@
 import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import { Navbar } from "./Navbar";
-import { CartProvider } from "../../context/CartContext";
 
-function renderNavbar() {
+function renderNavbar(itemCount = 0) {
   return render(
     <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <CartProvider>
-        <Navbar />
-      </CartProvider>
+      <Navbar itemCount={itemCount} />
     </MemoryRouter>,
   );
 }

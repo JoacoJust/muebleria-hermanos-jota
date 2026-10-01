@@ -1,17 +1,5 @@
-import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import { ProductDetail } from "./ProductDetail";
-import { CartProvider } from "../../context/CartContext";
-
-function renderDetail(props) {
-  return render(
-    <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <CartProvider>
-        <ProductDetail producto={null} loading={false} error={null} notFound={false} {...props} />
-      </CartProvider>
-    </MemoryRouter>,
-  );
-}
 
 const producto = {
   id: 1,
@@ -33,6 +21,20 @@ const producto = {
     fabricacion: "Hecha en Buenos Aires",
   },
 };
+
+function renderDetail(props) {
+  const addToCart = jest.fn();
+  return render(
+    <ProductDetail
+      producto={null}
+      loading={false}
+      error={null}
+      notFound={false}
+      addToCart={addToCart}
+      {...props}
+    />,
+  );
+}
 
 describe("ProductDetail", () => {
   test("muestra estado de carga", () => {

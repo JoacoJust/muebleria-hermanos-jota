@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, ShoppingBag, X } from "lucide-react";
-import { useCart } from "../../context/CartContext";
 
 const links = [
   { to: "/", label: "Inicio" },
@@ -9,8 +8,7 @@ const links = [
   { to: "/contacto", label: "Contacto" },
 ];
 
-export function Navbar() {
-  const { itemCount } = useCart();
+export function Navbar({ itemCount }) {
   const [open, setOpen] = useState(false);
 
   return (

@@ -5,7 +5,7 @@ import { EmptyState } from "../ui/EmptyState";
 import { ErrorMessage } from "../ui/ErrorMessage";
 import { Spinner } from "../ui/Spinner";
 
-export function ProductList({ productos, loading, error, onRetry, showFilters = true }) {
+export function ProductList({ productos, loading, error, onRetry, showFilters = true, addToCart }) {
   const [query, setQuery] = useState("");
   const [categoria, setCategoria] = useState("");
   const [maxPrecio, setMaxPrecio] = useState("");
@@ -49,7 +49,7 @@ export function ProductList({ productos, loading, error, onRetry, showFilters = 
         <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtrados.map((producto) => (
             <li key={producto.id}>
-              <ProductCard {...producto} />
+              <ProductCard {...producto} addToCart={addToCart} />
             </li>
           ))}
         </ul>
