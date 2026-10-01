@@ -91,8 +91,8 @@ describe("API Hermanos Jota", () => {
     expect(res.json.mock.calls[0][0].message).toBe("Error interno del servidor");
   });
 
-  test("GET /images/silla-ejecutiva.svg sirve imagen", async () => {
-    const res = await request(app).get("/images/silla-ejecutiva.svg");
+  test("GET /images/silla-trabajo-belgrano.png sirve imagen", async () => {
+    const res = await request(app).get("/images/silla-trabajo-belgrano.png");
     expect(res.status).toBe(200);
     expect(res.headers["content-type"]).toMatch(/^image\//);
   });
