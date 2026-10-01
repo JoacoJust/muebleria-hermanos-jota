@@ -117,8 +117,8 @@ cd muebleria-hermanos-jota
 npm run install:all
 
 # Configurar variables de entorno
-cp backend/.env.example backend/.env
-cp client/.env.example client/.env
+copy backend\.env.example backend\.env
+copy client\.env.example client\.env
 ```
 
 En Windows PowerShell:
