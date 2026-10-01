@@ -1,3 +1,4 @@
+import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import { CartPage } from "./CartPage";
 import * as ReactRouterDom from "react-router-dom";
@@ -23,12 +24,20 @@ describe("CartPage", () => {
   });
 
   test("muestra carrito vacío", () => {
-    render(<CartPage />);
+    render(
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <CartPage />
+      </MemoryRouter>,
+    );
     expect(screen.getByText(/tu carrito está vacío/i)).toBeInTheDocument();
   });
 
   test("muestra título de carrito", () => {
-    render(<CartPage />);
+    render(
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <CartPage />
+      </MemoryRouter>,
+    );
     expect(screen.getByRole("heading", { level: 1, name: /carrito/i })).toBeInTheDocument();
   });
 });

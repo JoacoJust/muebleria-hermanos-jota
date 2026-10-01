@@ -1,3 +1,4 @@
+import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import { ProductList } from "./ProductList";
 
@@ -17,7 +18,9 @@ const silla = {
 function renderList(props) {
   const addToCart = jest.fn();
   return render(
-    <ProductList productos={[]} loading={false} error={null} addToCart={addToCart} {...props} />,
+    <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <ProductList productos={[]} loading={false} error={null} addToCart={addToCart} {...props} />
+    </MemoryRouter>,
   );
 }
 
