@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../../context/CartContext";
 import { formatCurrency, imageUrl } from "../../utils/format";
 import { Button } from "../ui/Button";
 import { ErrorMessage } from "../ui/ErrorMessage";
 import { Spinner } from "../ui/Spinner";
 
-export function ProductDetail({ producto, loading, error, notFound, onRetry }) {
-  const { addToCart } = useCart();
+export function ProductDetail({ producto, loading, error, notFound, onRetry, addToCart }) {
   const [qty, setQty] = useState(1);
 
   if (loading) {

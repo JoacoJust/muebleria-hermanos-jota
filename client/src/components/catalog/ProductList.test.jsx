@@ -1,17 +1,5 @@
-import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import { ProductList } from "./ProductList";
-import { CartProvider } from "../../context/CartContext";
-
-function renderList(props) {
-  return render(
-    <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <CartProvider>
-        <ProductList productos={[]} loading={false} error={null} {...props} />
-      </CartProvider>
-    </MemoryRouter>,
-  );
-}
 
 const silla = {
   id: 1,
@@ -25,6 +13,13 @@ const silla = {
   enStock: true,
   cantidad: 8,
 };
+
+function renderList(props) {
+  const addToCart = jest.fn();
+  return render(
+    <ProductList productos={[]} loading={false} error={null} addToCart={addToCart} {...props} />,
+  );
+}
 
 describe("ProductList", () => {
   test("muestra estado de carga", () => {
