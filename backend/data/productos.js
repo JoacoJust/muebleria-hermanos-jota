@@ -5,7 +5,7 @@ const productos = [
     categoria: "sillas",
     precio: 25000,
     descuento: 10,
-    imagen: "/images/silla-ejecutiva.svg",
+    imagen: "/images/silla-trabajo-belgrano.png",
     descripcion: "Silla ergonómica con soporte lumbar ajustable",
     detalles: {
       material: "Cuero vacuno y malla transpirable",
@@ -24,7 +24,7 @@ const productos = [
     categoria: "sillas",
     precio: 18000,
     descuento: 0,
-    imagen: "/images/silla-eames.svg",
+    imagen: "/images/sillas-cordoba.png",
     descripcion: "Silla de diseño icónico con asiento ergonómico y patas de madera",
     detalles: {
       material: "Asiento moldeado y madera de guatambú",
@@ -43,7 +43,7 @@ const productos = [
     categoria: "mesas",
     precio: 18000,
     descuento: 0,
-    imagen: "/images/mesa-centro.svg",
+    imagen: "/images/mesa-centro-araucaria.png",
     descripcion: "Mesa de centro de cristal templado con base de madera",
     detalles: {
       material: "Cristal templado y madera de roble",
@@ -62,7 +62,7 @@ const productos = [
     categoria: "mesas",
     precio: 85000,
     descuento: 15,
-    imagen: "/images/mesa-comedor.svg",
+    imagen: "/images/mesa-comedor-pampa.png",
     descripcion: "Mesa extensible de madera maciza ideal para reuniones familiares",
     detalles: {
       material: "Madera de roble maciza",
@@ -81,7 +81,7 @@ const productos = [
     categoria: "mesas",
     precio: 32000,
     descuento: 5,
-    imagen: "/images/mesa-ratona.svg",
+    imagen: "/images/mesa-noche-aconcagua.png",
     descripcion: "Mesa ratona de diseño con doble nivel y terminación en nogal",
     detalles: {
       material: "Madera de nogal con acabado natural",
@@ -100,7 +100,7 @@ const productos = [
     categoria: "sofas",
     precio: 120000,
     descuento: 20,
-    imagen: "/images/sillon-chesterfield.svg",
+    imagen: "/images/sillon-copacabana.png",
     descripcion: "Sillón de tres cuerpos con capitoné clásico y estructura reforzada",
     detalles: {
       material: "Cuero vacuno y madera de petiribí",
@@ -119,7 +119,7 @@ const productos = [
     categoria: "sofas",
     precio: 95000,
     descuento: 0,
-    imagen: "/images/sofa-modular.svg",
+    imagen: "/images/sofa-patagonia.png",
     descripcion: "Sofá modular contemporáneo con tapizado antimanchas",
     detalles: {
       material: "Tela de origen local y estructura de madera nativa",
@@ -138,7 +138,7 @@ const productos = [
     categoria: "escritorios",
     precio: 45000,
     descuento: 10,
-    imagen: "/images/escritorio-nordico.svg",
+    imagen: "/images/escritorio-costa.png",
     descripcion: "Escritorio minimalista con cajones integrados para home office",
     detalles: {
       material: "Madera de roble claro con acabado natural",
@@ -157,7 +157,7 @@ const productos = [
     categoria: "escritorios",
     precio: 68000,
     descuento: 0,
-    imagen: "/images/escritorio-gamer.svg",
+    imagen: "/images/escritorio-costa.png",
     descripcion: "Escritorio amplio con soporte para monitor y gestión de cables",
     detalles: {
       material: "Madera nativa y acero",
@@ -176,7 +176,7 @@ const productos = [
     categoria: "estanterias",
     precio: 38000,
     descuento: 0,
-    imagen: "/images/estanteria-industrial.svg",
+    imagen: "/images/biblioteca-recoleta.png",
     descripcion: "Estantería de cinco niveles con estilo industrial y gran capacidad",
     detalles: {
       material: "Acero negro y madera de pino",
@@ -195,7 +195,7 @@ const productos = [
     categoria: "estanterias",
     precio: 72000,
     descuento: 12,
-    imagen: "/images/estanteria-modular.svg",
+    imagen: "/images/aparador-uspallata.png",
     descripcion: "Estantería modular de tres cuerpos con puertas y estantes ajustables",
     detalles: {
       material: "Madera nativa con acabado natural",
@@ -214,7 +214,7 @@ const productos = [
     categoria: "estanterias",
     precio: 55000,
     descuento: 8,
-    imagen: "/images/biblioteca.svg",
+    imagen: "/images/biblioteca-recoleta.png",
     descripcion: "Biblioteca de pared con estantes ajustables y diseño clásico",
     detalles: {
       material: "Madera de pino maciza",

@@ -26,4 +26,12 @@ Casos pensados para romper backend y cliente. Completar la columna "Obtenido" al
 
 Buscado: `var`, `==`, `.then(`, keys por índice, `innerHTML`, `dangerouslySetInnerHTML`, estilos inline, `console.log` de depuración, URLs hardcodeadas, secretos. El logger del backend es la excepción permitida.
 
-**Resultado:** No se encontraron antipatrones en el código activo (backend + client). Los usos de `var`, `innerHTML`, etc. están en `legacy/` (código antiguo de referencia) y en archivos de configuración/documentación.
+**Resultado:** No se encontraron antipatrones en el código activo (backend + client). La carpeta `legacy/` fue eliminada en el cierre de Sprint 3-4.
+
+## Cambios en cierre de Sprint 3-4
+
+- **Carrito**: Migrado de Context API a estado en `App.js` con props usando `Outlet context`.
+- **ContactForm**: Reescrito con `useState` controlado, eliminando `react-hook-form` y `zod`. Validación movida a `utils/validateContact.js`.
+- **ProductDetail**: Agregado comentario de una línea indicando el renderizado condicional.
+- **Legacy**: Eliminada carpeta `legacy/` con el sitio estático de Sprints 1-2.
+- **Limpieza**: Verificado que no haya `.env` trackeado, ni `console.log`, `var`, `==`, `.then(`, keys por índice ni estilos inline.
