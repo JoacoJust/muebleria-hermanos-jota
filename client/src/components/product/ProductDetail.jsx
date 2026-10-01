@@ -8,6 +8,7 @@ import { Spinner } from "../ui/Spinner";
 export function ProductDetail({ producto, loading, error, notFound, onRetry, addToCart }) {
   const [qty, setQty] = useState(1);
 
+  // Renderizado condicional: loading → error → notFound → detalle
   if (loading) {
     return <Spinner label="Cargando el mueble" />;
   }
