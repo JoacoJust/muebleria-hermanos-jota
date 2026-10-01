@@ -26,7 +26,7 @@ Demo anterior (estática): https://joacojust.github.io/muebleria-hermanos-jota/
 
 - Node.js 22, npm workspaces
 - Backend: Express 4, cors, helmet, dotenv, Jest + Supertest
-- Frontend: React 18 (CRA), React Router 6, Tailwind 3.4, React Hook Form + Zod, Testing Library
+- Frontend: React 18 (CRA), React Router 6, Tailwind 3.4, Testing Library
 - Calidad: ESLint, Prettier, Husky, lint-staged, commitlint
 
 ## Arquitectura
@@ -46,11 +46,9 @@ Contrato: [docs/api-contract.md](docs/api-contract.md).
 
 - **ESLint 9 vs react-scripts**: ESLint 9 en la raíz choca con el plugin de ESLint de react-scripts 5. Se usa `DISABLE_ESLINT_PLUGIN=true` en los scripts `start` y `build` del cliente, ya que el lint corre aparte con `npm run lint`. Esto permite mantener un solo config de ESLint moderno en la raíz sin conflictos.
 
-- **Context API vs props para el carrito**: La consigna original sugería "carrito como estado en App.js, contador en Navbar vía props". Sin embargo, se eligió Context API (`CartContext` + `useCart`) porque:
-  - Evita prop drilling: el estado del carrito se usa en múltiples componentes (Navbar, ProductCard, CartPage, etc.)
-  - Es el patrón recomendado en React para estado global que no requiere librerías externas
-  - Mejora la mantenibilidad al desacoplar el estado de la jerarquía de componentes
-  - El hook `useCart` centraliza la lógica de negocio (stock, localStorage, cálculo de envío)
+- **Carrito en App.js con props**: El estado del carrito se gestiona en `App.js` usando el hook `useCart` y se pasa a los componentes hijos a través de props. Se usa `Outlet context` en `Layout` para evitar prop drilling excesivo. Esta decisión cumple con la consigna y simplifica la arquitectura al eliminar Context API.
+
+- **Formulario de contacto con useState controlado**: `ContactForm` usa inputs controlados con `useState` en lugar de `react-hook-form` + `zod`. La validación se maneja en `utils/validateContact.js` con las mismas reglas que antes. Esto reduce dependencias y mantiene el código más explícito.
 
 - **Proxy de CRA**: El cliente usa `proxy: "http://localhost:4000"` en `package.json` para redirigir las peticiones a la API en desarrollo. En producción, `REACT_APP_API_URL` debe apuntar al origen de la API.
 
@@ -76,6 +74,20 @@ cp client/.env.example client/.env
 En Windows PowerShell: `Copy-Item backend/.env.example backend/.env`
 
 ## Ejecución
+
+Por separado:
+
+```bash
+# Backend (puerto 4000)
+cd backend
+npm run dev
+
+# Cliente (puerto 3000)
+cd client
+npm start
+```
+
+Ambos a la vez:
 
 ```bash
 npm run dev
@@ -112,7 +124,6 @@ Conventional Commits, forzados por Husky. Guía: [CONTRIBUTING.md](CONTRIBUTING.
 - Fotos reales del kit de marca en lugar de SVG de reemplazo
 - `POST /api/contacto` según el contrato
 - Checkout / `POST /api/pedidos` (fuera de esta entrega)
-- Quitar `legacy/` cuando el equipo lo apruebe
 - Agregar capturas de pantalla en `docs/screenshots/` (home, catálogo, detalle, carrito, contacto, móvil)
 
 ## Licencia
