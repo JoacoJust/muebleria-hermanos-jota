@@ -1,34 +1,53 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema } from "../../schemas/contactSchema";
+import { validateContact } from "../../utils/validateContact";
 import { Button } from "../ui/Button";
 
 export function ContactForm() {
-  const [sent, setSent] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm({
-    resolver: zodResolver(contactSchema),
-    defaultValues: {
-      nombre: "",
-      email: "",
-      telefono: "",
-      asunto: "",
-      mensaje: "",
-    },
+  const [values, setValues] = useState({
+    nombre: "",
+    email: "",
+    telefono: "",
+    asunto: "",
+    mensaje: "",
   });
+  const [errors, setErrors] = useState({});
+  const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  async function onSubmit() {
-    // TODO(equipo): integrar POST /api/contacto cuando el contrato se implemente.
-    await new Promise((resolve) => {
-      setTimeout(resolve, 400);
-    });
-    setSent(true);
-    reset();
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setValues((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const validationErrors = validateContact(values);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      // TODO(equipo): integrar POST /api/contacto cuando el contrato se implemente.
+      await new Promise((resolve) => {
+        setTimeout(resolve, 400);
+      });
+      setSent(true);
+      setValues({
+        nombre: "",
+        email: "",
+        telefono: "",
+        asunto: "",
+        mensaje: "",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   if (sent) {
@@ -44,7 +63,7 @@ export function ContactForm() {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit}
       className="space-y-4 rounded-lg border border-brand-borde bg-white p-6"
     >
       <div>
@@ -53,12 +72,14 @@ export function ContactForm() {
         </label>
         <input
           id="nombre"
+          name="nombre"
+          value={values.nombre}
+          onChange={handleChange}
           className="mt-1 w-full rounded-md border border-brand-borde px-3 py-2"
-          {...register("nombre")}
         />
         {errors.nombre ? (
           <p role="alert" className="mt-1 text-sm text-red-700">
-            {errors.nombre.message}
+            {errors.nombre}
           </p>
         ) : null}
       </div>
@@ -68,13 +89,15 @@ export function ContactForm() {
         </label>
         <input
           id="email"
+          name="email"
           type="email"
+          value={values.email}
+          onChange={handleChange}
           className="mt-1 w-full rounded-md border border-brand-borde px-3 py-2"
-          {...register("email")}
         />
         {errors.email ? (
           <p role="alert" className="mt-1 text-sm text-red-700">
-            {errors.email.message}
+            {errors.email}
           </p>
         ) : null}
       </div>
@@ -84,12 +107,14 @@ export function ContactForm() {
         </label>
         <input
           id="telefono"
+          name="telefono"
+          value={values.telefono}
+          onChange={handleChange}
           className="mt-1 w-full rounded-md border border-brand-borde px-3 py-2"
-          {...register("telefono")}
         />
         {errors.telefono ? (
           <p role="alert" className="mt-1 text-sm text-red-700">
-            {errors.telefono.message}
+            {errors.telefono}
           </p>
         ) : null}
       </div>
@@ -99,12 +124,14 @@ export function ContactForm() {
         </label>
         <input
           id="asunto"
+          name="asunto"
+          value={values.asunto}
+          onChange={handleChange}
           className="mt-1 w-full rounded-md border border-brand-borde px-3 py-2"
-          {...register("asunto")}
         />
         {errors.asunto ? (
           <p role="alert" className="mt-1 text-sm text-red-700">
-            {errors.asunto.message}
+            {errors.asunto}
           </p>
         ) : null}
       </div>
@@ -114,13 +141,15 @@ export function ContactForm() {
         </label>
         <textarea
           id="mensaje"
+          name="mensaje"
           rows="5"
+          value={values.mensaje}
+          onChange={handleChange}
           className="mt-1 w-full rounded-md border border-brand-borde px-3 py-2"
-          {...register("mensaje")}
         />
         {errors.mensaje ? (
           <p role="alert" className="mt-1 text-sm text-red-700">
-            {errors.mensaje.message}
+            {errors.mensaje}
           </p>
         ) : null}
       </div>
