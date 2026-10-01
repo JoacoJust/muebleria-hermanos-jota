@@ -2,9 +2,11 @@ import { Leaf, Recycle, Trees } from "lucide-react";
 import { ProductList } from "../components/catalog/ProductList";
 import { Button } from "../components/ui/Button";
 import { useProducts } from "../hooks/useProducts";
+import { useOutletContext } from "react-router-dom";
 
 export function Home() {
   const { productos, loading, error, reintentar } = useProducts();
+  const { addToCart } = useOutletContext();
   const destacados = productos.filter((item) => item.descuento > 0).slice(0, 3);
 
   return (
@@ -34,6 +36,7 @@ export function Home() {
             error={error}
             onRetry={reintentar}
             showFilters={false}
+            addToCart={addToCart}
           />
         </div>
       </section>
