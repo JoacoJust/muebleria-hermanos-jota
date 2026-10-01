@@ -9,6 +9,7 @@ Registro para el “humano en el circuito”: qué se delegó, cómo se validó 
 | Botones con navegación                               | `Button` envolviendo `Link` (botón anidado inválido)               | Revisión a11y / HTML                                                                 | `Button` acepta `to` y renderiza `Link`                                                                      |
 | Datos de marca                                       | Textos de contacto del manual; materiales ajustados a taller local | Contraste con `legacy/js/datos.js` y el prompt de marca                              | Siguen pendientes fotos reales del kit (hoy hay SVG de reemplazo)                                            |
 | Commits Conventional / reescribir historial a inglés | No se ejecutó                                                      | Pedido del equipo                                                                    | Lo hace una persona del equipo; la IA solo propone mensajes                                                  |
+| Cierre Sprint 3-4                                    | Migración de carrito a props, ContactForm con useState, limpieza   | Revisión de consigna, verificación de cambios en tests y README                      | Tests actualizados para eliminar dependencias de Context API y react-hook-form                                |
 
 ## Qué no debe hacer la IA
 
