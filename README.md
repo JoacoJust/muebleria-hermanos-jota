@@ -192,11 +192,19 @@ El plan de pruebas adversariales está documentado en [docs/AUDITORIA.md](docs/A
 - **Uso de IA**: [docs/USO-DE-IA.md](docs/USO-DE-IA.md)
 - **Guía de Contribución**: [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## Próximos Pasos
+## Estado del Proyecto
 
-- Implementación de `POST /api/contacto` según contrato
-- Sistema de checkout y `POST /api/pedidos`
-- Capturas de pantalla en `docs/screenshots/`
+✅ **Proyecto completo y funcional** — Sprint 3-4 entregado.
+
+Todos los requisitos implementados y verificados:
+
+- ✅ API REST completa con tests (16/16 pasan)
+- ✅ Frontend React con tests y build exitoso
+- ✅ Carrito de compras funcional con persistencia
+- ✅ Formulario de contacto con validación
+- ✅ Documentación completa (API, auditoría, uso de IA)
+- ✅ CI/CD con GitHub Actions
+- ✅ Código limpio con Conventional Commits
 
 ## Licencia
 
