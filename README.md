@@ -24,7 +24,7 @@ La aplicación consta de dos servicios independientes que se comunican a través
 | Ruiz Diaz Agostina | [@ruizdiazagostina](https://github.com/ruizdiazagostina) |
 | Marcos Ford        | [@MarcosFord5](https://github.com/MarcosFord5)           |
 | Rocio Lazo         | [@Rociolazo](https://github.com/Rociolazo)               |
-| Leandro Avalos     | [@LeandroAvalos](https://github.com/LeandroAvalos)       |
+| Leandro Avalos     | [@Leandro-Gast](https://github.com/Leandro-Gast)       |
 
 ## Stack Tecnológico
 
