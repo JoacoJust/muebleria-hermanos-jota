@@ -65,7 +65,7 @@ Listado completo del catálogo.
       "precio": 25000,
       "descuento": 10,
       "precioFinal": 22500,
-      "imagen": "/images/silla-ejecutiva.svg",
+      "imagen": "/images/silla-trabajo-belgrano.png",
       "detalles": {
         "material": "Cuero vacuno y malla transpirable",
         "alto": "110 cm",
